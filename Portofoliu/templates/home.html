@@ -1,0 +1,190 @@
+{% extends "base.html" %}
+
+{% block title %}Codreanu Rareș – Portfolio{% endblock %}
+
+{% block content %}
+
+<!-- HERO -->
+<section id="hero" class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Graphic Designer &amp; Illustrator</p>
+    <h1>Codreanu<br><em>Rareș</em></h1>
+    <p class="hero-role">Just Ash — Design cu intenție</p>
+    <p class="hero-desc">
+      Creez afișe, cover art și ilustrații digitale cu impact vizual autentic.
+      Fiecare proiect e construit să comunice ceva real.
+    </p>
+    <div class="hero-cta">
+      <a class="btn-primary" href="#artfolio">
+        <span>&#8595;</span> Artfolio
+      </a>
+      <a class="btn-outline" href="#contact">
+        Contactează-mă
+      </a>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <div class="scroll-hint-line"></div>
+    Scroll
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <p class="section-label reveal">Despre mine</p>
+  <h2 class="section-title reveal">Artist vizual cu <em>pasiune</em><br>pentru detalii</h2>
+
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p>{{ info.description }}</p>
+    </div>
+    <div class="about-stats">
+      <div class="stat-card reveal reveal-delay-1">
+        <div class="stat-number">2+</div>
+        <div class="stat-label">Ani de practică</div>
+      </div>
+      <div class="stat-card reveal reveal-delay-2">
+        <div class="stat-number">7</div>
+        <div class="stat-label">Tools stăpânite</div>
+      </div>
+      <div class="stat-card reveal reveal-delay-3">
+        <div class="stat-number">3</div>
+        <div class="stat-label">Roluri profesionale</div>
+      </div>
+      <div class="stat-card reveal reveal-delay-4">
+        <div class="stat-number">&#8734;</div>
+        <div class="stat-label">Proiecte creative</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- TOOLS -->
+<section id="tools">
+  <div class="inner">
+    <p class="section-label reveal">Instrumente</p>
+    <h2 class="section-title reveal">Cu ce <em>lucrez</em></h2>
+
+    <div class="tools-grid">
+      {% for t in tools %}
+      <div class="tool-card reveal reveal-delay-1">
+        <img src="/static/images/tools/{{ t.image }}" alt="{{ t.name }}">
+        <span>{{ t.name }}</span>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ARTFOLIO -->
+<section id="artfolio" class="section">
+  <p class="section-label reveal">Portofoliu</p>
+  <h2 class="section-title reveal">Lucrările <em>mele</em></h2>
+
+  <div class="artfolio-grid">
+    {% for art in artworks %}
+    <div class="art-card reveal" data-src="/static/images/{{ art.image }}">
+      <img src="/static/images/{{ art.image }}" alt="{{ art.title }}">
+      <div class="art-overlay">
+        <span class="art-title">{{ art.title }}</span>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="section">
+  <p class="section-label reveal">Carieră</p>
+  <h2 class="section-title reveal"><em>Experiența</em> mea</h2>
+
+  <div class="timeline-v">
+    {% for job in experience %}
+    <div class="timeline-entry reveal">
+      <div class="timeline-dot"></div>
+      <p class="timeline-period">{{ job.period }}</p>
+      <h3 class="timeline-role">{{ job.role }}</h3>
+      <p class="timeline-detail">{{ job.details }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- EDUCATION -->
+<section id="education" class="section">
+  <p class="section-label reveal">Formare</p>
+  <h2 class="section-title reveal"><em>Educația</em> mea</h2>
+
+  <div class="education-grid">
+    {% for ed in education %}
+    <div class="edu-card reveal">
+      <p class="edu-years">{{ ed.years }}</p>
+      <h3 class="edu-place">{{ ed.place }}</h3>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="inner">
+    <div class="contact-layout">
+
+      <div class="contact-left reveal">
+        <h2 class="contact-headline">Lucrăm <em>împreună?</em></h2>
+        <p class="contact-subtext">
+          Sunt disponibil pentru proiecte freelance — afișe, cover art,
+          branding vizual sau ilustrații personalizate.
+        </p>
+      </div>
+
+      <div class="contact-items">
+        <a class="contact-item reveal reveal-delay-1" href="mailto:{{ info.email }}">
+          <div class="contact-icon">&#9993;</div>
+          <div>
+            <div class="contact-info-label">Email</div>
+            <div class="contact-info-value">{{ info.email }}</div>
+          </div>
+        </a>
+        <a class="contact-item reveal reveal-delay-2" href="tel:{{ info.phone }}">
+          <div class="contact-icon">&#9743;</div>
+          <div>
+            <div class="contact-info-label">Telefon</div>
+            <div class="contact-info-value">{{ info.phone }}</div>
+          </div>
+        </a>
+        <a class="contact-item reveal reveal-delay-3" href="https://instagram.com/ash_4_art" target="_blank">
+          <div class="contact-icon">&#9670;</div>
+          <div>
+            <div class="contact-info-label">Instagram</div>
+            <div class="contact-info-value">{{ info.instagram }}</div>
+          </div>
+        </a>
+        <div class="contact-item reveal reveal-delay-4">
+          <div class="contact-icon">&#8857;</div>
+          <div>
+            <div class="contact-info-label">Locație</div>
+            <div class="contact-info-value">{{ info.location }}</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% endblock %}

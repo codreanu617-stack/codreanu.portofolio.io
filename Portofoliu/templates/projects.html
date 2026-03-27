@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Artfolio — Codreanu Rareș{% endblock %}
+
+{% block content %}
+
+<section id="artfolio" class="section" style="padding-top: 8rem;">
+  <p class="section-label reveal">Portofoliu</p>
+  <h2 class="section-title reveal">Lucrările <em>mele</em></h2>
+
+  <div class="artfolio-grid">
+    {% for art in artworks %}
+    <div class="art-card reveal" data-src="/static/images/{{ art.image }}">
+      <img src="/static/images/{{ art.image }}" alt="{{ art.title }}">
+      <div class="art-overlay">
+        <span class="art-title">{{ art.title }}</span>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% endblock %}

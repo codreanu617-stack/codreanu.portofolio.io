@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}Contact — Codreanu Rareș{% endblock %}
+
+{% block content %}
+
+<section id="contact" style="padding-top: 4rem;">
+  <div class="inner">
+    <div class="contact-layout">
+
+      <div class="contact-left reveal">
+        <h2 class="contact-headline">Lucrăm <em>împreună?</em></h2>
+        <p class="contact-subtext">
+          Sunt disponibil pentru proiecte freelance — afișe, cover art,
+          branding vizual sau ilustrații personalizate.
+        </p>
+      </div>
+
+      <div class="contact-items">
+        <a class="contact-item reveal reveal-delay-1" href="mailto:{{ info.email }}">
+          <div class="contact-icon">&#9993;</div>
+          <div>
+            <div class="contact-info-label">Email</div>
+            <div class="contact-info-value">{{ info.email }}</div>
+          </div>
+        </a>
+        <a class="contact-item reveal reveal-delay-2" href="tel:{{ info.phone }}">
+          <div class="contact-icon">&#9743;</div>
+          <div>
+            <div class="contact-info-label">Telefon</div>
+            <div class="contact-info-value">{{ info.phone }}</div>
+          </div>
+        </a>
+        <a class="contact-item reveal reveal-delay-3" href="https://instagram.com/ash_4_art" target="_blank">
+          <div class="contact-icon">&#9670;</div>
+          <div>
+            <div class="contact-info-label">Instagram</div>
+            <div class="contact-info-value">{{ info.instagram }}</div>
+          </div>
+        </a>
+           <a class="contact-item reveal reveal-delay-4" href="https://www.linkedin.com/in/codreanu-rares-52ba4a314/" target="_blank">
+          <div class="contact-icon">&#9670;</div>
+          <div>
+            <div class="contact-info-label">Linkedin</div>
+            <div class="contact-info-value">{{ info.linkedin }}</div>
+          </div>
+        </a>
+        <div class="contact-item reveal reveal-delay-4">
+          <div class="contact-icon">&#8857;</div>
+          <div>
+            <div class="contact-info-label">Locație</div>
+            <div class="contact-info-value">{{ info.location }}</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% endblock %}
